@@ -1,4 +1,4 @@
-﻿namespace Espeiceneitor
+﻿namespace Espeiceneitor.Entidades
 {
     public class Lancamento
     {

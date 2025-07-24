@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Espeiceneitor
+namespace Espeiceneitor.Entidades
 {
     public class Missao
     {
@@ -15,7 +15,7 @@ namespace Espeiceneitor
         public int Duracao { get; set; }
         public string Detalhes { get; set; }
         public StatusMissao StatusMissao { get; set; }
-        public DestinoMissao DestinoMissao { get; set;}
+        public DestinoMissao DestinoMissao { get; set; }
 
         public Missao(string nome, int duracao, DestinoMissao destino = DestinoMissao.Indefinido)
         {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Espeiceneitor
+namespace Espeiceneitor.Entidades
 {
     public enum StatusMissao
     {

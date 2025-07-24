@@ -1,4 +1,5 @@
-﻿using Espeiceneitor.Utils;
+﻿using Espeiceneitor.Entidades;
+using Espeiceneitor.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,7 @@ namespace Espeiceneitor
 {
     public class ProgramaEspacial
     {
-        private static List<Astronauta> _Astronautas = new List<Astronauta>()
-        {
-            new Astronauta("Pelé", DateTime.MinValue, "Brasil"),
-            new Astronauta("Maradona", DateTime.MinValue, "Argentina"),
-            new Astronauta("Brian", DateTime.MinValue, "EUA"),
-            new Astronauta("Joãozinho", DateTime.MinValue, "Brasil"),
-        };
+        
 
         private static List<Missao> _Missoes = new List<Missao>()
         {
@@ -47,35 +42,44 @@ namespace Espeiceneitor
             Console.WriteLine("6 - Listar Lançamentos");
             Console.WriteLine("7 - Relatório de missão");
 
-
-            var entrada = Console.ReadLine();
-            switch (entrada)
+            try
             {
-                case "1":
-                    CadastroAstronautas();
-                    break;
-                case "2":
-                    ListagemAstronautas();
-                    ConsoleUtil.AguardarTecla();
-                    break;
-                case "3":
-                    CadastroMissao();
-                    break;
-                case "4":
-                    ListagemMissoes();
-                    ConsoleUtil.AguardarTecla();
-                    break;
-                case "5":
-                    RealizarLancamento();
-                    break;
-                case "6":
-                    ListagemLancamentos();
-                    ConsoleUtil.AguardarTecla();
-                    break;
-                case "7":
-                    AtualizarMissao();
-                    ConsoleUtil.AguardarTecla();
-                    break;
+                var entrada = Console.ReadLine();
+                switch (entrada)
+                {
+                    case "1":
+                        CadastroAstronautas();
+                        break;
+                    case "2":
+                        ListagemAstronautas();
+                        ConsoleUtil.AguardarTecla();
+                        break;
+                    case "3":
+                        CadastroMissao();
+                        break;
+                    case "4":
+                        ListagemMissoes();
+                        ConsoleUtil.AguardarTecla();
+                        break;
+                    case "5":
+                        RealizarLancamento();
+                        break;
+                    case "6":
+                        ListagemLancamentos();
+                        ConsoleUtil.AguardarTecla();
+                        break;
+                    case "7":
+                        AtualizarMissao();
+                        ConsoleUtil.AguardarTecla();
+                        break;
+                }
+            }
+            catch (Exception erro)
+            {
+                Console.Clear();
+                Console.WriteLine($"Ocorreu um erro ao executar operação!\n Mensagem: {erro.Message}");
+                Console.WriteLine("Aperte qualquer tecla para voltar para o menu...");
+                Console.ReadKey();
             }
 
             Console.Clear();
@@ -87,25 +91,32 @@ namespace Espeiceneitor
             bool continuar = false;
             do
             {
-                Console.Clear();
-                Console.WriteLine("CADASTRO DE ASTRONAUTA - ESC PARA SAIR!");
-                Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-
-                if (Console.ReadKey().Key == ConsoleKey.Escape)
+                try
                 {
-                    continuar = false;
-                    //break; -> Parar o looping
+                    Console.Clear();
+                    Console.WriteLine("CADASTRO DE ASTRONAUTA - ESC PARA SAIR!");
+                    Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+
+                    if (Console.ReadKey().Key == ConsoleKey.Escape)
+                    {
+                        continuar = false;
+                        //break; -> Parar o looping
+                    }
+                    else
+                    {
+                        string nome = ConsoleUtil.Interagir("Informe o nome do astronauta: ");
+                        DateTime dataNascimento = ConsoleUtil.InteragirDateTime("Informe a data de nascimento do astronauta: ");
+                        string origem = ConsoleUtil.Interagir("Informe o país de origem do astronauta: ");
+
+                        var astronauta = new Astronauta(nome, dataNascimento, origem);
+                        astronauta.Create();
+
+                        continuar = true;
+                    }
                 }
-                else
+                catch (Exception erro)
                 {
-                    string nome = ConsoleUtil.Interagir("Informe o nome do astronauta: ");
-                    DateTime dataNascimento = ConsoleUtil.InteragirDateTime("Informe a data de nascimento do astronauta: ");
-                    string origem = ConsoleUtil.Interagir("Informe o país de origem do astronauta: ");
-
-                    var astronauta = new Astronauta(nome, dataNascimento, origem);
-                    _Astronautas.Add(astronauta);
-
-                    continuar = true;
+                    throw new Exception($"Ocorreu um erro na rotina de cadastro de astronauta. Mensagem: {erro.Message}");
                 }
             } while (continuar);
         }
@@ -114,7 +125,7 @@ namespace Espeiceneitor
         {
             Console.Clear();
             Console.WriteLine("Lista de astronautas");
-            foreach (var item in _Astronautas)
+            foreach (var item in Astronauta.Astronautas)
             {
                 Console.WriteLine($"[{item.Id}] - {item.Nome}, {item.Origem}");
             }
@@ -183,7 +194,7 @@ namespace Espeiceneitor
         private static Astronauta BuscarAstronauta(int index)
         {
             Astronauta astronautaSelecionado = null;
-            foreach (var astronauta in _Astronautas)
+            foreach (var astronauta in Astronauta.Astronautas)
             {
                 if (astronauta.Id == index)
                 {

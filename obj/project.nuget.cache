@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LHaOjhEMO4E=",
+  "dgSpecHash": "U0UMRUFHirJWrYRvd+8OtYMtAUB3Zw9yt63AzJqoPG0iP5Djsa+YIl0AQtohgZZUJCgqcuuHbJdNWKWSIxTDGA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jcmat\\Documents\\Programação\\C#\\ProjetosPostaveis\\Espeiceneitor\\Espeiceneitor.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\jcmat\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
-    "C:\\Users\\jcmat\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
-    "C:\\Users\\jcmat\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512",
-    "C:\\Users\\jcmat\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.36\\microsoft.netcore.app.host.win-x64.6.0.36.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\marco.angelo\\Desktop\\R\\Espeiceneitor\\Espeiceneitor\\Espeiceneitor.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

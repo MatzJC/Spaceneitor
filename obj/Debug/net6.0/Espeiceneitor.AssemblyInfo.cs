@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Espeiceneitor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5db7a9c62763a8519914fe16049e83f9bb2e23a1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a7f918e955d42bc4ab6313c2a9263ae20611fbf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Espeiceneitor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Espeiceneitor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
